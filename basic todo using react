@@ -1,0 +1,52 @@
+
+
+import { useState } from "react";
+
+function App() {
+  const [todos , setTodos]= useState([{
+    title:" go to gym",
+    description:" go to gym from 7-9",
+    completed: false
+},{
+  title:"do dsa",
+  description:" do 2 questions daily",
+  completed: false
+},{
+  title:"do dsa",
+  description:" do 2 questions daily",
+  completed: false
+},{
+  title:"do dsa",
+  description:" do 2 questions daily",
+  completed: false
+}])
+
+function onclickaddtodo(){
+  setTodos([...todos,{
+    title:" new todo",
+    description:" description for new todo"
+  }])
+}
+  return (
+  <div>
+  <button onClick={onclickaddtodo}> add a random todo</button>
+  {todos.map((todo)=>{
+   return <Customtodo title={todo.title} description={todo.description}/>
+  })}
+  </div>
+     
+    
+  )
+}
+
+
+function Customtodo(prop){
+
+  return <div>
+
+ <p> {prop.title}</p> 
+    <h1> {prop.description}</h1>
+  </div>
+}
+
+export default App
